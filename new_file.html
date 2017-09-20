@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.min.js" ></script>
+	</head>
+	<style>
+		a{
+			text-decoration: none;
+		}
+		li{
+			list-style-type: none;
+		}
+		.class1{
+			background: bottom #999999;
+		}
+	</style>
+	<body>
+		<div id="app">
+		<span v-show="class1">修改背景</span><input type="checkbox" v-model="class1" /><br />
+		<input type="text" v-model="message" />
+		<div v-html="message" v-bind:class="{'class1':class1}" v-if="class1" ></div>
+		<div v-else="class1">15165165165132</div>
+		    <a v-bind:href="url" v-on:click="alert(1111)">哔哩哔哩</a><br />
+		    {{100+100}}<br />
+			{{class1}}<br />
+			{{message.split('').reverse().join('')}}<br />
+		    {{txt}}<br />
+		    {{retxt}}<br />
+		    {{retxt2()}}
+			<ul v-show="class1">
+				<li v-for="(value,key) in value">{{value}}{{key}}</li>
+			</ul>
+		</div>
+		<script>
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					message:'我是谁',
+					txt:'Brave Song',
+					url:'#',
+					class1:true,
+					value:{
+						1:'列表',
+						2:'列表',
+						3:'列表'
+					}
+					},
+				computed:{
+					retxt:function(){
+						return this.txt.split('').reverse().join('');
+					}
+				},
+				methods:{
+					retxt2:function(){
+						return this.txt.split('').reverse().join('');
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
